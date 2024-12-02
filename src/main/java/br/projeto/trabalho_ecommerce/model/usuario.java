@@ -73,7 +73,7 @@ public class usuario {
     }
 
     @Override
-    public int hashCode(){
+    public int hashCode() {
         return Objects.hashCode(id);
     }
 }
