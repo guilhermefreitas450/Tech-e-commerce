@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuario")
-public class UsuarioController {
+public class UsuarioController{
 
     @Autowired
     private UsuarioRepository repository;
@@ -27,7 +27,7 @@ public class UsuarioController {
                         new IllegalArgumentException("Usuario nao pode ser encontrado"));
     }
 
-@PostMapping
+    @PostMapping
     public usuario save(@RequestBody usuarioDTO dto) {
         usuario usuario = new usuario();
         usuario.setNome(dto.nome());
@@ -35,6 +35,6 @@ public class UsuarioController {
         usuario.setTelefone(dto.telefone());
         usuario.setEndereco(dto.endereco());
 
-        return this.repository.save(usuario) ;
+        return this.repository.save(usuario);
     }
 }
