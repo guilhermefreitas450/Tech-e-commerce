@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuario")
-public class UsuarioController {
+public class UsuarioController{
 
     @Autowired
     private UsuarioRepository repository;
@@ -21,7 +21,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public usuario findById(@PathVariable Integer id) {
+    public usuario findById(@PathVariable Integer id){
         return this.repository.findById(id)
                 .orElseThrow(() ->
                         new IllegalArgumentException("Usuario nao pode ser encontrado"));
