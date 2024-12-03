@@ -28,7 +28,7 @@ public class UsuarioController {
     }
 
 @PostMapping
-    public usuario save(@RequestBody usuarioDTO dto){
+    public usuario save(@RequestBody usuarioDTO dto) {
         usuario usuario = new usuario();
         usuario.setNome(dto.nome());
         usuario.setEmail(dto.email());
