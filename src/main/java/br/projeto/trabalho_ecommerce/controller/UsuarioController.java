@@ -35,6 +35,6 @@ public class UsuarioController {
         usuario.setTelefone(dto.telefone());
         usuario.setEndereco(dto.endereco());
 
-        return this.repository.save(usuario);
+        return this.repository.save(usuario) ;
     }
 }
