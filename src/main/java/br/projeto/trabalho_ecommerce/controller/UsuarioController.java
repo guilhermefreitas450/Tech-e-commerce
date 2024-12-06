@@ -31,9 +31,11 @@ public class UsuarioController {
 
     @PostMapping //CRUD POST
     public ResponseEntity<usuario> save(@RequestBody usuarioDTO dto) {
+
         if (dto.nome() .isEmpty() || dto.email() .isEmpty() || dto.telefone() .isEmpty() || dto.endereco() .isEmpty()) {
             return ResponseEntity.status(428).build();
         } // aplica a validação em todos os itens
+
         usuario usuario = new usuario();
         usuario.setNome(dto.nome());
         usuario.setEmail(dto.email());
@@ -46,15 +48,18 @@ public class UsuarioController {
 
     @DeleteMapping("/{id}") // CRUD DELETE
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
+
         usuario usuario = this.repository.findById(id)
                 .orElseThrow(() ->
                         new IllegalArgumentException("Usuário excluido"));
+
         this.repository.delete(usuario);
         return ResponseEntity.noContent().build();
     }
 
     @PutMapping ("/{id}") // CRUD UPDATE
     public ResponseEntity<usuario> upddate(@PathVariable Integer id, @RequestBody usuarioDTO dto) {
+
         if (dto.nome() .isEmpty() || dto.email() .isEmpty() || dto.telefone() .isEmpty() || dto.endereco() .isEmpty()) {
             return ResponseEntity.status(428).build();
         } // aplica a validação em todos os itens
@@ -62,6 +67,7 @@ public class UsuarioController {
         usuario usuario = this.repository.findById(id)
                 .orElseThrow(() ->
                         new IllegalArgumentException("Dados do usuário atualizados"));
+
         usuario.setNome(dto.nome());
         usuario.setEmail(dto.email());
         usuario.setTelefone(dto.telefone());
